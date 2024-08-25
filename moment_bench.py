@@ -27,12 +27,13 @@ import matplotlib.pyplot as plt
 
 
 class Airfoil:
-    def __init__(self, C_l0, c, s, mass, moi_yy, l_cm, flap):
+    def __init__(self, C_l0, c, s, mass, moi_yy, l_cm, flap,negative_limit,positive_limit):
         """
 
         :param mass: total mass
         :param moi_yy: moment of inertia in yy
         :param l_cm: chord-wise distance from the pivot point (center) to the center of mass.
+        :param negative/positive limit: flap maximum defection angle in rad 
         """
         self.C_l0 = C_l0  # zero-lift lift coefficient
         self.c = c  # chord
@@ -46,7 +47,8 @@ class Airfoil:
         self.l_cm = l_cm
 
         self.flap = flap
-
+        self.negative_limit = negative_limit
+        self.positive_limit = positive_limit
 
 class Control_Surface:
     def __init__(self, c, s):
